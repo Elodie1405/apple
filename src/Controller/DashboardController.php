@@ -8,6 +8,7 @@ use App\Entity\Category;
 use App\Form\ProductType;
 use App\Form\CategoryType;
 use App\Form\RegisterType;
+use App\Form\EditUsersType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -73,7 +74,7 @@ class DashboardController extends AbstractController
 
         $users = $this->entityManager->getRepository(User::class)->find($id);
 
-        $form = $this->createForm(EditRegisterType::class, $users);
+        $form = $this->createForm(EditUsersType::class, $users);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -195,7 +196,7 @@ class DashboardController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-    
+
     /**
      * @Route("/admin/edit/category/{id}", name="edit_category")
      */
@@ -220,7 +221,7 @@ class DashboardController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-    
+
     /**
      * @Route("/admin/delete/category/{id}", name="delete_category")
      */

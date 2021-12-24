@@ -35,17 +35,6 @@ class RegisterType extends AbstractType
 
             ])
 
-            ->add('roles', ChoiceType::class, [
-                'label' => 'Rôle',
-                'attr' => ['class' => 'form-select'],
-                'multiple' => true,
-                'expanded' => false,
-                'choices' => [
-                    'Administrateur' => "ROLE_ADMIN",
-                    'Utilisateur' => "ROLE_USER",
-                ],
-            ])
-
 
             ->add('submit', SubmitType::class, [
                 'label' => 'Inscription',

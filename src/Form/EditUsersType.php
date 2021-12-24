@@ -9,6 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
@@ -31,6 +32,17 @@ class EditUsersType extends AbstractType
                 'label' => 'Mot de passe',
                 'attr' => ['placeholder' => 'Entrez votre mot de passe']
 
+            ])
+
+            ->add('roles', ChoiceType::class, [
+                'label' => 'Rôle',
+                'attr' => ['class' => 'form-select'],
+                'multiple' => true,
+                'expanded' => false,
+                'choices' => [
+                    'Administrateur' => "ROLE_ADMIN",
+                    'Utilisateur' => "ROLE_USER",
+                ],
             ])
 
 
