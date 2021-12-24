@@ -44,7 +44,9 @@
                     </div>
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{path('single_product',{'id':product.id})}}">Voir le produit</a></div>
+                        <div class="text-center">
+                        <a href="{{ path('addCart', {id: product.id, route : 'home'}) }}" class="btn btn-outline-success mb-2">Ajouter au panier</a>
+                        <a class="btn btn-outline-dark mt-auto" href="{{path('single_product',{'id':product.id})}}">Voir le produit</a></div>
                     </div>
                     
                 </div>
